@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="game">
+        Select a letter
+    </div>
     <script>
         var choices = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
         var wins = 0;
@@ -18,27 +21,39 @@
        
        document.onkeyup = function(event){
         var userLetter = event.key;
-        console.log(Chances);
+        console.log(computerLetter);
 
             
+        if(Chances === 0){
+            computerLetter = choices[Math.floor(Math.random() * choices.length)];
+            alert("you lose! The computer is chosing a new letter. select a new letter");
+            Chances = 13;
+        }
+        else{
         if(userLetter === computerLetter){
             wins++; 
             computerLetter = choices[Math.floor(Math.random() * choices.length)];
             Chances = 13;
+            alert("you win. adding a point to the score board! play again by typing another letter");
         }
         else {
             Losses--;
             Chances--;
-        }
-        
-
-console.log("computer" + computerLetter);
-        console.log("user" + userLetter);
-        console.log("wins" + wins);
-        console.log("losses" + Losses);
-        console.log("chances" + Chances);
+        }}
+        var html = 
+        "<p>You chose: " + userLetter + "</p>" +
+          "<p>wins: " + wins + "</p>" +
+          "<p>losses: " + Losses + "</p>" +
+          "<p>chances: " + Chances + "</p>";
+          document.querySelector("#game").innerHTML = html;
+    }
+// console.log("computer" + computerLetter);
+//         console.log("user" + userLetter);
+//         console.log("wins" + wins);
+//         console.log("losses" + Losses);
+//         console.log("chances" + Chances);
     
-        }
+//         }
 
 
 
