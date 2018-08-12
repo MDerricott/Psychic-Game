@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var choices = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        var wins = 0;
+        var Losses = 0;
+        var Chances = 13;
+        var computerLetter = choices[Math.floor(Math.random() * choices.length)];
+       
+       
+       
+       document.onkeyup = function(event){
+        var userLetter = event.key;
+        console.log(Chances);
+
+            
+        if(userLetter === computerLetter){
+            wins++; 
+            computerLetter = choices[Math.floor(Math.random() * choices.length)];
+            Chances = 13;
+        }
+        else {
+            Losses--;
+            Chances--;
+        }
+        
+
+console.log("computer" + computerLetter);
+        console.log("user" + userLetter);
+        console.log("wins" + wins);
+        console.log("losses" + Losses);
+        console.log("chances" + Chances);
+    
+        }
+
+
+
+    
+    </script>
+    
+</body>
+</html>
